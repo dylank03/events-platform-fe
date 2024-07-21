@@ -8,18 +8,19 @@ body{
   background: whitesmoke;
 }
 
-.container{
-  position: absolute;
+.register-container{
+  position: relative;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0%);
   padding-top: 5px;
   padding-bottom: 25px;
   padding-left: 25px;
   padding-right: 25px;
-  height: 600px;
+  max-height: 900px;
   width: 500px;
-  border: solid black 5px;
+  border: solid black 2px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 1rem;
 }
 
@@ -32,16 +33,48 @@ body{
   padding-bottom: 25px;
   padding-left: 25px;
   padding-right: 25px;
-  height: 350px;
+  max-height: 500px;
   width: 500px;
   border: solid black 5px;
   border-radius: 1rem;
 }
 
+@media only screen and (max-width:600px){
+    .login-container{
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      padding-top: 5px;
+      padding-bottom: 25px;
+      padding-left: 25px;
+      padding-right: 25px;
+      max-height: 500px;
+      max-width: 300px;
+      border: solid black 5px;
+      border-radius: 1rem;
+    }
+
+    .register-container{
+      position: relative;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, 0%);
+      padding-top: 5px;
+      padding-bottom: 25px;
+      padding-left: 25px;
+      padding-right: 25px;
+      max-height: 900px;
+      max-width: 300px;
+      border: solid black 2px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      border-radius: 1rem;
+    }
+}
+
 input[type=text], input[type=password] {
   width: 100%;
   color: black;
-  margin-bottom: 15px;
   padding-top: 10px;
   padding-bottom: 10px;
   display: inline-block;
@@ -55,9 +88,45 @@ button{
   left: 50%;
   transform: translate(-50%, 0);
   padding: 10px;
-  margin:auto;
+  margin-top: 15px;
   border-radius: 9999px;
   color: black;
 }
 
+label{
+  margin-top: 15px;
+  font-weight: bold;
+}
 
+.error{
+  margin-top:0px;
+  color: red;
+}
+
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  margin-bottom: 50px;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #111;
+}

@@ -1,5 +1,25 @@
+import { getUser } from "./api/api"
+import { useState } from "react"
+import { getLogout } from "./api/api"
+import { Navigate } from "react-router-dom"
+
 const HomePage = ()=>{
-    return <h1>Homepage</h1>
+    const [firstName, setFirstName] = useState('')
+    const [lastName, setLastName] = useState('')
+    const [loggedOut, setLoggedOut] = useState(false)
+
+    const handleClick = ()=>{
+        getLogout().then(setLoggedOut(true))
+    }
+
+    getUser().then((res)=>{
+        setFirstName(res.firstName)
+        setLastName(res.lastName)
+    }).catch((err)=>{
+        console.log(err.response)
+    })
+    
+    return (<>{loggedOut && <Navigate to="/" replace={true} />}<h1>Homepage</h1><h2>Welcome {firstName} {lastName} </h2><button onClick={handleClick}>logout</button></>)
 }
 
 export default HomePage
