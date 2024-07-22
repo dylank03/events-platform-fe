@@ -8,7 +8,6 @@ const LoginForm = ()=>{
     const [password, setPassword] = useState('')
     const [user, setUser] = useState('')
     const [error, setError] = useState({})
-    const [focus, setFocus] = useState(false)
 
     const handleClick = (event)=>{
         event.preventDefault()

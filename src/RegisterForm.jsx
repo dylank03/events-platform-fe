@@ -20,6 +20,7 @@ const RegisterForm = ()=>{
             setUser(user)
         }).catch(({response})=>{
             setError(response.data)
+            console.log(response.data)
         })
         setFirstName('')
         setLastName('')
