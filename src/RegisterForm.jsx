@@ -40,15 +40,15 @@ const RegisterForm = ()=>{
 
             <label>First Name</label>
             <input value = {firstName} onChange = {(event)=>{setFirstName(event.target.value)}} type = "text" placeholder = "John"/>
-            {firstName.length >=1 || (error ? <p className="error">{error.firstName}</p> : <></>)}
+            {firstName.length >=1 || <p className="error">{error.firstName}</p>}
 
             <label>Last Name</label>
             <input value = {lastName} onChange={(event)=>{setLastName(event.target.value)}} type = "text" placeholder = "Doe"/>
-            {lastName.length >=1 || (error ? <p className="error">{error.lastName}</p> : <></>)}
+            {lastName.length >=1 || <p className="error">{error.lastName}</p>}
 
             <label>Email</label>
             <input value = {email} onChange={(event)=>{setEmail(event.target.value)}} type = "text" placeholder = "JohnDoe@example.com"/>
-            {error ? <p className="error">{error.email}</p> : <></>}
+            <p className="error">{error.email}</p>
 
             <label>Password</label>
             <input value = {password} onFocus={()=>{setFocus(true)}} onChange={(event)=>{setPassword(event.target.value)}} type = "password" placeholder = "Enter Password"/>

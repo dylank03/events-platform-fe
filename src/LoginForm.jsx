@@ -21,6 +21,8 @@ const LoginForm = ()=>{
         setError('')
     }
 
+    console.log(error.email? 'string': 'notastring')
+
     return (
 
      <>
@@ -34,11 +36,11 @@ const LoginForm = ()=>{
 
             <label>Email</label>
             <input value = {email} onChange={(event)=>{setEmail(event.target.value)}} type = "text" placeholder = "JohnDoe@example.com"/>
-            {error ? <p className="error">{error.email}</p> : <></>}
+            <p className="error">{error.email}</p>
 
             <label>Password</label>
             <input value = {password} onChange={(event)=>{setPassword(event.target.value)}} type = "password" placeholder = "Enter Password"/>
-            {error ? <p className="error">{error.password}</p> : <></>}
+            <p className="error">{error.password}</p>
 
             <button type="submit" onClick={handleClick}>Login</button>
         </div>
