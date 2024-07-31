@@ -21,10 +21,10 @@ const Header = ({setUser, user})=>{
 
     return  (<>{loggedOut && <Navigate to= "/" replace = {true}/>}
     
-    <ul>
-    <li><a href = "/">SITE</a></li>
-    {user ? <li style = {{float: "right"}}><a onClick={handleClick}>Log Out</a></li> : <><li style = {{float:"right"}}><a href="/register">Sign Up</a></li>
-    <li style ={{float:"right"}}><a href="/login">Login</a></li></>}
+    <ul className="header-container">
+    <li className="header-logo"><a className="header-logo" href = "/">SITE</a></li>
+    {user ? <li className="header-link" style = {{float: "right"}}><a className="header-link" onClick={handleClick}>Log Out</a></li> : <><li className="header-link" style = {{float:"right"}}><a className="header-link" href="/register">Sign Up</a></li>
+    <li className="header-link" style ={{float:"right"}}><a className="header-link" href="/login">Login</a></li></>}
   </ul></>) 
 }
 

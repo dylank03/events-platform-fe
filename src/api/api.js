@@ -24,5 +24,11 @@ const getLogout = ()=>{
     })
 }
 
+const getEvents = ()=>{
+    return axios.get('http://localhost:9090/events', {withCredentials: true}).then(({data})=>{
+        return data
+    })
+}
 
-export {postRegister, postLogin, getUser, getLogout}
+
+export {postRegister, postLogin, getUser, getLogout, getEvents}

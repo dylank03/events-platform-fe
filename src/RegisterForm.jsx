@@ -22,11 +22,6 @@ const RegisterForm = ()=>{
             setError(response.data)
             console.log(response.data)
         })
-        setFirstName('')
-        setLastName('')
-        setEmail('')
-        setPassword('')
-        setConfirmPassword('')
     }
 
     return (
@@ -38,27 +33,27 @@ const RegisterForm = ()=>{
             <p>Welcome to "site name"! Sign up below to access amazing tools and features!</p>
             <hr></hr>
 
-            <label>First Name</label>
-            <input value = {firstName} onChange = {(event)=>{setFirstName(event.target.value)}} type = "text" placeholder = "John"/>
+            <label className="form-label">First Name</label>
+            <input className="form-input" value = {firstName} onChange = {(event)=>{setFirstName(event.target.value)}} type = "text" placeholder = "John"/>
             {firstName.length >=1 || <p className="error">{error.firstName}</p>}
 
-            <label>Last Name</label>
-            <input value = {lastName} onChange={(event)=>{setLastName(event.target.value)}} type = "text" placeholder = "Doe"/>
+            <label className="form-label">Last Name</label>
+            <input className="form-input" value = {lastName} onChange={(event)=>{setLastName(event.target.value)}} type = "text" placeholder = "Doe"/>
             {lastName.length >=1 || <p className="error">{error.lastName}</p>}
 
-            <label>Email</label>
-            <input value = {email} onChange={(event)=>{setEmail(event.target.value)}} type = "text" placeholder = "JohnDoe@example.com"/>
+            <label className="form-label">Email</label>
+            <input className="form-input" value = {email} onChange={(event)=>{setEmail(event.target.value)}} type = "text" placeholder = "JohnDoe@example.com"/>
             <p className="error">{error.email}</p>
 
-            <label>Password</label>
-            <input value = {password} onFocus={()=>{setFocus(true)}} onChange={(event)=>{setPassword(event.target.value)}} type = "password" placeholder = "Enter Password"/>
+            <label className="form-label">Password</label>
+            <input className="form-input" value = {password} onFocus={()=>{setFocus(true)}} onChange={(event)=>{setPassword(event.target.value)}} type = "password" placeholder = "Enter Password"/>
             {(password.length < 8 && focus && <p className="error">Password must contain at least 8 characters</p>)}
 
-            <label>Confirm Password</label>
-            <input value = {confirmPassword} onChange={(event)=>{setConfirmPassword(event.target.value)}} type = "password" placeholder = "Repeat Password"/>
+            <label className="form-label">Confirm Password</label>
+            <input className="form-input" value = {confirmPassword} onChange={(event)=>{setConfirmPassword(event.target.value)}} type = "password" placeholder = "Repeat Password"/>
             {confirmPassword === password || <p className="error">Passwords do not match</p>}
 
-            <button type="submit" onClick={handleClick} disabled = {password !== confirmPassword}>Sign Up</button>
+            <button className="form-button" type="submit" onClick={handleClick} disabled = {password !== confirmPassword}>Sign Up</button>
         </div>
     </form></>)
 }

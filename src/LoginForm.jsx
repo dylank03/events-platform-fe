@@ -16,12 +16,7 @@ const LoginForm = ()=>{
         }).catch(({response})=>{
             setError(response.data)
         })
-        setEmail('')
-        setPassword('')
-        setError('')
     }
-
-    console.log(error.email? 'string': 'notastring')
 
     return (
 
@@ -34,15 +29,15 @@ const LoginForm = ()=>{
             <p>Don't have an account yet? <a href= '/register'>sign up here!</a></p>
             <hr></hr>
 
-            <label>Email</label>
-            <input value = {email} onChange={(event)=>{setEmail(event.target.value)}} type = "text" placeholder = "JohnDoe@example.com"/>
+            <label className="form-label">Email</label>
+            <input className="form-input" value = {email} onChange={(event)=>{setEmail(event.target.value)}} type = "text" placeholder = "JohnDoe@example.com"/>
             <p className="error">{error.email}</p>
 
-            <label>Password</label>
-            <input value = {password} onChange={(event)=>{setPassword(event.target.value)}} type = "password" placeholder = "Enter Password"/>
+            <label className="form-label">Password</label>
+            <input className="form-input" value = {password} onChange={(event)=>{setPassword(event.target.value)}} type = "password" placeholder = "Enter Password"/>
             <p className="error">{error.password}</p>
 
-            <button type="submit" onClick={handleClick}>Login</button>
+            <button className="form-button" type="submit" onClick={handleClick}>Login</button>
         </div>
     </form></>)
 }
