@@ -25,10 +25,10 @@ body{
 }
 
 .login-container{
-  position: absolute;
+  position: relative;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0%);
   padding-top: 5px;
   padding-bottom: 25px;
   padding-left: 25px;
@@ -41,10 +41,10 @@ body{
 
 @media only screen and (max-width:600px){
     .login-container{
-      position: absolute;
+      position: relative;
       left: 50%;
       top: 50%;
-      transform: translate(-50%, -50%);
+      transform: translate(-50%, 0%);
       padding-top: 5px;
       padding-bottom: 25px;
       padding-left: 25px;
@@ -136,4 +136,14 @@ body{
 
 .header-logo :hover{
   background-color: #111;
+}
+
+.event-card{
+  background-color: palevioletred;
+  border-radius: 0.5rem;
+  padding: 5px;
+  margin: 5px;
+  width: 50%;
+  height: 400px;
+  list-style-type: none;
 }
