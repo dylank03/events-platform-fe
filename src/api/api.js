@@ -36,5 +36,9 @@ const postEvent = (eventName, eventStart, eventEnd, timezone, currency, eventLog
     return axios.post('http://localhost:9090/events', eventDetails, {withCredentials: true})
 }
 
+const getEvent = (eventId)=>{
+    return axios.get(`http://localhost:9090/event/${eventId}`, {withCredentials: true})
+}
 
-export {postRegister, postLogin, getUser, getLogout, getEvents, postEvent}
+
+export {postRegister, postLogin, getUser, getLogout, getEvents, postEvent, getEvent}

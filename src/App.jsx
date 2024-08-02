@@ -5,6 +5,7 @@ import HomePage from "./HomePage";
 import Header from "./Header";
 import { useState } from "react";
 import PostEvent from "./PostEvent";
+import SingleEvent from "./SingleEvent";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -18,6 +19,7 @@ function App() {
         <Route path="/login" element={<LoginForm />} />
         <Route path="/home" element={<HomePage setUser={setUser} />} />
         <Route path="/postevent" element={<PostEvent />} />
+        <Route path="/event/:eventId" element={<SingleEvent />} />
       </Routes>
     </>
   );

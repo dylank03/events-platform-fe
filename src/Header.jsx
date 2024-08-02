@@ -24,7 +24,7 @@ const Header = ({ setUser, user }) => {
       <ul className="header-container">
         <li className="header-logo">
           <a className="header-logo" href="/">
-            SITE
+            CoffeeConnect
           </a>
         </li>
         {user ? (

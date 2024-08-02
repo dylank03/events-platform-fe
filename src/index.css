@@ -119,6 +119,8 @@ body{
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
 }
 
 .header-link{
