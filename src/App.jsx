@@ -6,6 +6,7 @@ import Header from "./Header";
 import { useState } from "react";
 import PostEvent from "./PostEvent";
 import SingleEvent from "./SingleEvent";
+import PageNotFound from "./PageNotFound";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -20,6 +21,7 @@ function App() {
         <Route path="/home" element={<HomePage setUser={setUser} />} />
         <Route path="/postevent" element={<PostEvent />} />
         <Route path="/event/:eventId" element={<SingleEvent />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </>
   );
