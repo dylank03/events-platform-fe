@@ -1,31 +1,31 @@
 import axios from 'axios'
 
 const postRegister = (firstName, lastName, email, password)=>{
-    return axios.post('http://localhost:9090/user/register', {firstName, lastName, email, password}, {withCredentials: true}).then(({data})=>{
+    return axios.post('https://events-platform-be-mw7x.onrender.com/user/register', {firstName, lastName, email, password}, {withCredentials: true}).then(({data})=>{
         return data
     })
 }
 
 const postLogin = (email, password) =>{
-    return axios.post('http://localhost:9090/user/login', {email, password}, {withCredentials:true}).then(({data})=>{
+    return axios.post('https://events-platform-be-mw7x.onrender.com/user/login', {email, password}, {withCredentials:true}).then(({data})=>{
         return data
     })
 }
 
 const getUser = ()=>{
-    return axios.get('http://localhost:9090/user', {withCredentials: true}).then(({data})=>{
+    return axios.get('https://events-platform-be-mw7x.onrender.com/user', {withCredentials: true}).then(({data})=>{
         return data
     })
 }
 
 const getLogout = ()=>{
-    return axios.get('http://localhost:9090/user/logout', {withCredentials: true}).then(({data})=>{
+    return axios.get('https://events-platform-be-mw7x.onrender.com/user/logout', {withCredentials: true}).then(({data})=>{
         return data
     })
 }
 
 const getEvents = ()=>{
-    return axios.get('http://localhost:9090/events', {withCredentials: true}).then(({data})=>{
+    return axios.get('https://events-platform-be-mw7x.onrender.com/events', {withCredentials: true}).then(({data})=>{
         return data
     })
 }
@@ -33,11 +33,11 @@ const getEvents = ()=>{
 const postEvent = (eventName, eventStart, eventEnd, timezone, currency, eventLogo)=>{
     const eventDetails = {event: {name: {html: eventName,}, start: {utc: eventStart, timezone: timezone}, end: {utc: eventEnd, timezone: timezone},currency: currency, }}
     console.log(eventDetails)
-    return axios.post('http://localhost:9090/events', eventDetails, {withCredentials: true})
+    return axios.post('https://events-platform-be-mw7x.onrender.com/events', eventDetails, {withCredentials: true})
 }
 
 const getEvent = (eventId)=>{
-    return axios.get(`http://localhost:9090/event/${eventId}`, {withCredentials: true})
+    return axios.get(`https://events-platform-be-mw7x.onrender.com/event/${eventId}`, {withCredentials: true})
 }
 
 
