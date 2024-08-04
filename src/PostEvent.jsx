@@ -5,8 +5,6 @@ const PostEvent = () => {
   const [eventName, setEventName] = useState("");
   const [eventStart, setEventStart] = useState("");
   const [eventEnd, setEventEnd] = useState("");
-  const [timezone, setTimezone] = useState("");
-  const [currency, setCurrency] = useState("");
   const [eventLogo, setEventLogo] = useState("");
 
   const handleSubmit = (event) => {
@@ -15,19 +13,12 @@ const PostEvent = () => {
       new Date(eventStart).toISOString().slice(0, 19) + "Z";
     const formattedEventEnd =
       new Date(eventEnd).toISOString().slice(0, 19) + "Z";
-    postEvent(
-      eventName,
-      formattedEventStart,
-      formattedEventEnd,
-      timezone,
-      currency,
-      eventLogo
-    )
+    postEvent(eventName, formattedEventStart, formattedEventEnd, eventLogo)
       .then(({ data }) => {
         console.log(data);
       })
       .catch((err) => {
-        console.log(err);
+        console.log(err.response);
       });
   };
 
@@ -62,23 +53,7 @@ const PostEvent = () => {
             }}
             type="datetime-local"
           />
-          <label className="form-label">Time Zone</label>
-          <input
-            className="form-input"
-            value={timezone}
-            onChange={(event) => {
-              setTimezone(event.target.value);
-            }}
-          />
-          <label className="form-label">Currency</label>
-          <input
-            className="form-input"
-            value={currency}
-            onChange={(event) => {
-              setCurrency(event.target.value);
-            }}
-          />
-          <label className="form-label">Event Logo/Image</label>
+          <label className="form-label">Event Logo/Image (optional)</label>
           <input
             className="form-input"
             value={eventLogo}

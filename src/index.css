@@ -149,3 +149,31 @@ body{
   height: 400px;
   list-style-type: none;
 }
+
+.event-container{
+  text-align: center;
+  width: 70%;
+  max-width: 1200px;
+  margin: 0 auto;
+  
+}
+
+.event-image{
+  height: 400px;
+  width: 600px;
+  border-radius: 1.5rem;
+}
+
+.event-summary{
+  text-align: center;
+}
+
+.event-register-button{
+  display: flex;
+  margin: 0 auto;
+  border-radius: 1.5rem;
+  padding: 10px;
+  color: #00AA66;
+  border-color: #00AA66;
+  border-style: solid;
+}
