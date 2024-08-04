@@ -23,6 +23,7 @@ function App() {
         <Route path="/postevent" element={<PostEvent />} />
         <Route path="/event/:eventId" element={<SingleEvent />} />
         <Route path="/checkout/:eventId" element={<EmbeddedCheckout />} />
+        <Route path="/confirmation" element={<OrderConfirmation />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </>

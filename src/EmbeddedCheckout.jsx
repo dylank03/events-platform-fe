@@ -1,10 +1,11 @@
-import { useParams } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
 
 const EmbeddedCheckout = () => {
   const { eventId } = useParams();
+  const [orderComplete, setOrderComplete] = useState(false);
 
   var exampleCallback = function () {
-    console.log("Order complete!");
+    setOrderComplete(true);
   };
 
   window.EBWidgets.createWidget({
@@ -18,7 +19,12 @@ const EmbeddedCheckout = () => {
     onOrderComplete: exampleCallback, // Method called when an order has successfully completed
   });
 
-  return <div id={`eventbrite-widget-container-${eventId}`}></div>;
+  return (
+    <>
+      {orderComplete && <Navigate to="/confirmation" replace={true} />}
+      <div id={`eventbrite-widget-container-${eventId}`}></div>
+    </>
+  );
 };
 
 export default EmbeddedCheckout;
