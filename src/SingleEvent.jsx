@@ -16,7 +16,9 @@ const SingleEvent = () => {
 
   return (
     <div>
-      {register && <Navigate to="/checkout" replace={true}></Navigate>}
+      {register && (
+        <Navigate to={`/checkout/${event.id}`} replace={true}></Navigate>
+      )}
       {loading || (
         <>
           <div className="event-container">
