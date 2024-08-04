@@ -8,6 +8,7 @@ import PostEvent from "./PostEvent";
 import SingleEvent from "./SingleEvent";
 import PageNotFound from "./PageNotFound";
 import EmbeddedCheckout from "./EmbeddedCheckout";
+import OrderConfirmation from "./OrderConfirmation";
 
 function App() {
   const [user, setUser] = useState(null);
