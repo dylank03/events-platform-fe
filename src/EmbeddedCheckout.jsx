@@ -1,4 +1,5 @@
 import { useParams, Navigate } from "react-router-dom";
+import { useState } from "react";
 
 const EmbeddedCheckout = () => {
   const { eventId } = useParams();
