@@ -5,14 +5,14 @@ import { useState, useEffect } from "react";
 const SingleEvent = () => {
   const { eventId } = useParams();
   const [event, setEvent] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [register, setRegister] = useState(false);
-  // useEffect(() => {
-  //   getEvent(eventId).then(({ data }) => {
-  //     setEvent(data);
-  //     setLoading(false);
-  //   });
-  // }, [loading]);
+  useEffect(() => {
+    getEvent(eventId).then(({ data }) => {
+      setEvent(data);
+      setLoading(false);
+    });
+  }, [loading]);
 
   return (
     <div>
