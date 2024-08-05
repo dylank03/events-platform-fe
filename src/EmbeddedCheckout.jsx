@@ -16,14 +16,19 @@ const EmbeddedCheckout = () => {
     iframeContainerId: `eventbrite-widget-container-${eventId}`,
 
     // Optional
-    iframeContainerHeight: 425, // Widget height in pixels. Defaults to a minimum of 425px if not provided
+    modal: true,
+    modalTriggerElementId: "eventbrite-widget-modal-trigger-136611252222",
     onOrderComplete: exampleCallback, // Method called when an order has successfully completed
   });
 
   return (
     <>
       {orderComplete && <Navigate to="/confirmation" replace={true} />}
-      <div id={`eventbrite-widget-container-${eventId}`}></div>
+      <div id={`eventbrite-widget-container-${eventId}`}>
+        <button id="eventbrite-widget-modal-trigger-136611252222" type="button">
+          Buy Tickets
+        </button>
+      </div>
     </>
   );
 };
