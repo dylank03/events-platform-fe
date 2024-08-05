@@ -17,7 +17,7 @@ const EmbeddedCheckout = () => {
 
     // Optional
     modal: true,
-    modalTriggerElementId: "eventbrite-widget-modal-trigger-136611252222",
+    modalTriggerElementId: `eventbrite-widget-modal-trigger-${eventId}`,
     onOrderComplete: exampleCallback, // Method called when an order has successfully completed
   });
 
@@ -25,7 +25,7 @@ const EmbeddedCheckout = () => {
     <>
       {orderComplete && <Navigate to="/confirmation" replace={true} />}
       <div id={`eventbrite-widget-container-${eventId}`}>
-        <button id="eventbrite-widget-modal-trigger-136611252222" type="button">
+        <button id={`eventbrite-widget-modal-trigger-$eventId`} type="button">
           Buy Tickets
         </button>
       </div>
