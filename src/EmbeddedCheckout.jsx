@@ -20,7 +20,7 @@ const EmbeddedCheckout = () => {
   return (
     <>
       {orderComplete && (
-        <Navigate to="/confirmation" eventId={eventId} replace={true} />
+        <Navigate to={`/confirmation/${eventId}`} replace={true} />
       )}
       <div id={`eventbrite-widget-container-${eventId}`}></div>
     </>

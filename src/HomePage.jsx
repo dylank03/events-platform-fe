@@ -1,11 +1,8 @@
 import { getUser } from "./api/api";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import EventCard from "./EventCard";
 
 const HomePage = ({ setUser }) => {
-  const [firstName, setFirstName] = useState();
-  const [lastName, setLastName] = useState();
-
   useEffect(() => {
     getUser()
       .then(({ user }) => {
