@@ -10,25 +10,19 @@ const EmbeddedCheckout = () => {
   };
 
   window.EBWidgets.createWidget({
-    // Required
     widgetType: "checkout",
     eventId: eventId,
     iframeContainerId: `eventbrite-widget-container-${eventId}`,
-
-    // Optional
-    modal: true,
-    modalTriggerElementId: `eventbrite-widget-modal-trigger-${eventId}`,
-    onOrderComplete: exampleCallback, // Method called when an order has successfully completed
+    iframeContainerHeight: 425,
+    onOrderComplete: exampleCallback,
   });
 
   return (
     <>
-      {orderComplete && <Navigate to="/confirmation" replace={true} />}
-      <div id={`eventbrite-widget-container-${eventId}`}>
-        <button id={`eventbrite-widget-modal-trigger-$eventId`} type="button">
-          Buy Tickets
-        </button>
-      </div>
+      {orderComplete && (
+        <Navigate to="/confirmation" eventId={eventId} replace={true} />
+      )}
+      <div id={`eventbrite-widget-container-${eventId}`}></div>
     </>
   );
 };
