@@ -21,10 +21,16 @@ const EventCard = () => {
             return (
               <Link to={"/event/" + event.id} key={event.id}>
                 <li className="event-card">
+                  <img
+                    className="card-event-image"
+                    src={
+                      event.logo ||
+                      "https://images.pexels.com/photos/17506106/pexels-photo-17506106/free-photo-of-top-view-of-people-sitting-at-a-table-in-a-cafe-with-coffees.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    }
+                  />
                   <h1>{event.name.text}</h1>
-                  <h2>{event.start.local}</h2>
-                  <h2>{event.end.local}</h2>
-                  <h3>{event.currency}</h3>
+                  <h2>{new Date(event.start.local).toDateString()}</h2>
+                  <h2>{new Date(event.end.local).toDateString()}</h2>
                 </li>
               </Link>
             );

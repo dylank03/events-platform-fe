@@ -9,6 +9,7 @@ import SingleEvent from "./SingleEvent";
 import PageNotFound from "./PageNotFound";
 import EmbeddedCheckout from "./EmbeddedCheckout";
 import OrderConfirmation from "./OrderConfirmation";
+import PostConfirmation from "./PostConfirmation";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -25,6 +26,8 @@ function App() {
         <Route path="/event/:eventId" element={<SingleEvent />} />
         <Route path="/checkout/:eventId" element={<EmbeddedCheckout />} />
         <Route path="/confirmation/:eventId" element={<OrderConfirmation />} />
+        <Route path="/error" element={<Error />} />
+        <Route path="/postconfirmation" element={<PostConfirmation />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </>

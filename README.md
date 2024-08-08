@@ -8,4 +8,6 @@ Type `git clone https://github.com/dylank03/events-platform-fe.git` and press en
 
 Enter `npm run dev` and then enter `o` to open the frontend in your default browser. In order to sign up and log into an account you will need to be running the back end server on port 9090. The backend repository can be found here: https://github.com/dylank03/events-platform-be.git
 
-Hosted Version: https://coffeeconnect.netlify.app/
+Hosted Version: https://coffeeconnect.netlify.app/.
+
+Please note that the embedded eventbrite checkout widget will only display on netlify as it needs a https connection.

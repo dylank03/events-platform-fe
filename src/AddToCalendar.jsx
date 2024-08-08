@@ -7,7 +7,7 @@ const DISCOVERY_DOC =
   "https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest";
 const SCOPES = "https://www.googleapis.com/auth/calendar";
 
-function GoogleAuth({ event, setCalendarLink }) {
+function AddToCalendar({ event, setCalendarLink }) {
   const [isSignedIn, setIsSignedIn] = useState(false);
   const [events, setEvents] = useState("");
   const tokenClient = useRef(null);
@@ -76,16 +76,12 @@ function GoogleAuth({ event, setCalendarLink }) {
   };
 
   const addEventToCalendar = async (event) => {
-    console.log(event);
-    try {
       const res = await gapi.client.calendar.events.insert({
         calendarId: "primary",
         resource: event,
       });
       setCalendarLink(JSON.parse(res.body).htmlLink);
-    } catch (err) {
-      console.log(err);
-    }
+    
   };
 
   return (
@@ -106,4 +102,4 @@ function GoogleAuth({ event, setCalendarLink }) {
   );
 }
 
-export default GoogleAuth;
+export default AddToCalendar;

@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { postEvent } from "./api/api";
+import { Navigate } from "react-router-dom";
 
 const PostEvent = () => {
   const [eventName, setEventName] = useState("");
   const [eventStart, setEventStart] = useState("");
   const [eventEnd, setEventEnd] = useState("");
   const [eventLogo, setEventLogo] = useState("");
+  const [posted, setPosted] = useState("");
+  const [error, setError] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -14,16 +17,19 @@ const PostEvent = () => {
     const formattedEventEnd =
       new Date(eventEnd).toISOString().slice(0, 19) + "Z";
     postEvent(eventName, formattedEventStart, formattedEventEnd, eventLogo)
-      .then(({ data }) => {
-        console.log(data);
+      .then(() => {
+        setPosted(true);
       })
       .catch((err) => {
-        console.log(err.response);
+        setError(err);
       });
   };
 
+  console.log(error);
+
   return (
     <>
+      {posted && <Navigate to="/postconfirmation" replace={true} />}
       <form className="register-container">
         <div>
           <h1>Post Event</h1>
@@ -61,7 +67,11 @@ const PostEvent = () => {
               setEventLogo(event.target.value);
             }}
           />
-          <button className="form-button" onClick={handleSubmit}>
+          <button
+            disabled={posted}
+            className="form-button"
+            onClick={handleSubmit}
+          >
             Post!
           </button>
         </div>

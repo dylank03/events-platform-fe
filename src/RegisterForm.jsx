@@ -21,7 +21,6 @@ const RegisterForm = () => {
       })
       .catch(({ response }) => {
         setError(response.data);
-        console.log(response.data);
       });
   };
 

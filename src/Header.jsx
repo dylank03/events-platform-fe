@@ -1,35 +1,37 @@
 import { useState, useEffect } from "react";
 import { getLogout } from "./api/api";
 import { Navigate } from "react-router-dom";
+import { getUser } from "./api/api";
 
 const Header = ({ setUser, user }) => {
-  const [loggedOut, setLoggedOut] = useState(false);
+  useEffect(() => {
+    getUser()
+      .then(({ user }) => {
+        setUser(user.firstName);
+      })
+      .catch((err) => {
+        console.log(err.response);
+      });
+  }, []);
 
-  const handleClick = (event) => {
-    event.preventDefault();
-    getLogout().then(() => {
-      setLoggedOut(true);
-      setUser(null);
-    });
+  const handleClick = () => {
+    setUser(null);
+    getLogout();
   };
 
-  useEffect(() => {
-    setLoggedOut(false);
-  });
+  console.log(user);
 
   return (
     <>
-      {loggedOut && <Navigate to="/" replace={true} />}
-
       <ul className="header-container">
         <li className="header-logo">
-          <a className="header-logo" href="/">
+          <a className="header-logo" href={user ? "/home" : "/"}>
             CoffeeConnect
           </a>
         </li>
         {user ? (
           <li className="header-link" style={{ float: "right" }}>
-            <a className="header-link" onClick={handleClick}>
+            <a href="/" className="header-link" onClick={handleClick}>
               Log Out
             </a>
           </li>
